@@ -64,6 +64,14 @@
 		       ido-everywhere t)
 		 (ido-mode t)))
 
+(use-package flx-ido
+  :ensure t
+  :config (flx-ido-mode t))
+
+(use-package ido-vertical-mode
+  :ensure t
+  :config (ido-vertical-mode t))
+
 (use-package smex
   :ensure t
   :init (setq-default smex-history-length 32)
