@@ -59,23 +59,22 @@
   :ensure t
   :config (setq alchemist-mix-test-default-options "--no-start"))
 
-(use-package ido
-  :config (progn (setq ido-enable-flex-matching t
-		       ido-everywhere t)
-		 (ido-mode t)))
+(use-package swiper
+  :ensure t)
 
-(use-package flx-ido
+(use-package counsel
   :ensure t
-  :config (flx-ido-mode t))
+  :bind ("M-x" . counsel-M-x))
 
-(use-package ido-vertical-mode
+(use-package ivy
   :ensure t
-  :config (ido-vertical-mode t))
+  :init (setq ivy-use-virtual-buffers t
+                ivy-height 10
+                ivy-count-format "(%d/%d) ")
+  :config (ivy-mode 1))
 
-(use-package smex
-  :ensure t
-  :init (setq-default smex-history-length 32)
-  :bind ("M-x" . smex))
+(use-package hydra
+  :ensure t)
 
 (use-package company
   :ensure t
