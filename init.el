@@ -28,9 +28,9 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(use-package solarized-theme
-  :ensure t
-  :config (load-theme 'solarized-light t))
+(use-package doom-theme
+  :load-path "elpa/doom-theme/"
+  :config (load-theme 'doom-one t))
 
 (use-package rainbow-delimiters
   :ensure t
