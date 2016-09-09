@@ -47,6 +47,7 @@
   :init (setq evil-snipe-scope 'whole-buffer)
   :config (progn
             (evil-snipe-mode 1)
+            (add-hook 'after-save-hook 'magit-after-save-refresh-status)
             (add-hook 'magit-mode-hook 'turn-off-evil-snipe-override-mode)))
 
 (use-package evil-magit
