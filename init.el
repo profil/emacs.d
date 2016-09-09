@@ -101,6 +101,19 @@
 (use-package magit
   :ensure t)
 
+(use-package git-gutter-fringe
+  :ensure t
+  :config
+  (define-fringe-bitmap 'git-gutter-fr:added
+    [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
+    nil nil 'center)
+  (define-fringe-bitmap 'git-gutter-fr:modified
+    [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
+    nil nil 'center)
+  (define-fringe-bitmap 'git-gutter-fr:deleted
+    [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
+    nil nil 'center))
+
 ;; Enable S-{left, right, up, down} to switch window focus
 (windmove-default-keybindings)
 
