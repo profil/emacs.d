@@ -47,7 +47,6 @@
   :init (setq evil-snipe-scope 'whole-buffer)
   :config (progn
             (evil-snipe-mode 1)
-            (add-hook 'after-save-hook 'magit-after-save-refresh-status)
             (add-hook 'magit-mode-hook 'turn-off-evil-snipe-override-mode)))
 
 (use-package evil-magit
@@ -72,7 +71,8 @@
   :init (setq ivy-use-virtual-buffers t
                 ivy-height 10
                 ivy-count-format "(%d/%d) ")
-  :bind (:map ivy-minibuffer-map ("RET" . ivy-alt-done))
+  :bind (("C-c C-r" . ivy-resume)
+         :map ivy-minibuffer-map ("RET" . ivy-alt-done))
   :config (ivy-mode 1))
 
 (use-package hydra
@@ -87,6 +87,7 @@
   :init (setq org-agenda-window-setup 'current-window))
 
 (use-package linum
+  :init (setq linum-format "%3d ")
   :config (add-hook 'prog-mode-hook 'linum-mode t))
 
 (use-package yasnippet
@@ -100,22 +101,24 @@
   :config (add-hook 'prog-mode-hook #'smartparens-mode))
 
 (use-package magit
-  :ensure t)
-
-(use-package git-gutter-fringe
   :ensure t
-  :init (add-hook 'prog-mode-hook 'git-gutter-mode)
-  :config
-  (setq git-gutter:update-interval 1)
-  (define-fringe-bitmap 'git-gutter-fr:added
-    [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
-    nil nil 'center)
-  (define-fringe-bitmap 'git-gutter-fr:modified
-    [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
-    nil nil 'center)
-  (define-fringe-bitmap 'git-gutter-fr:deleted
-    [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
-    nil nil 'center))
+  :init (add-hook 'after-save-hook 'magit-after-save-refresh-status))
+
+;;(use-package git-gutter-fringe
+;;  :ensure t
+;;  :init (add-hook 'prog-mode-hook 'git-gutter-mode)
+;;  :config
+;;  (setq git-gutter:update-interval 1
+;;        fringes-outside-margins t)
+;;  (define-fringe-bitmap 'git-gutter-fr:added
+;;    [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
+;;    nil nil 'center)
+;;  (define-fringe-bitmap 'git-gutter-fr:modified
+;;    [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
+;;    nil nil 'center)
+;;  (define-fringe-bitmap 'git-gutter-fr:deleted
+;;    [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
+;;    nil nil 'center))
 
 ;; Enable S-{left, right, up, down} to switch window focus
 (windmove-default-keybindings)
