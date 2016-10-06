@@ -101,22 +101,6 @@
   :ensure t
   :init (add-hook 'after-save-hook 'magit-after-save-refresh-status))
 
-;;(use-package git-gutter-fringe
-;;  :ensure t
-;;  :init (add-hook 'prog-mode-hook 'git-gutter-mode)
-;;  :config
-;;  (setq git-gutter:update-interval 1
-;;        fringes-outside-margins t)
-;;  (define-fringe-bitmap 'git-gutter-fr:added
-;;    [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
-;;    nil nil 'center)
-;;  (define-fringe-bitmap 'git-gutter-fr:modified
-;;    [224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224 224]
-;;    nil nil 'center)
-;;  (define-fringe-bitmap 'git-gutter-fr:deleted
-;;    [0 0 0 0 0 0 0 0 0 0 0 0 0 128 192 224 240 248]
-;;    nil nil 'center))
-
 ;; Enable S-{left, right, up, down} to switch window focus
 (windmove-default-keybindings)
 
