@@ -97,10 +97,6 @@
 	    (yas-reload-all)
 	    (add-hook 'prog-mode-hook #'yas-minor-mode)))
 
-(use-package smartparens
-  :ensure t
-  :config (add-hook 'prog-mode-hook #'smartparens-mode))
-
 (use-package magit
   :ensure t
   :init (add-hook 'after-save-hook 'magit-after-save-refresh-status))
