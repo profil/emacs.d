@@ -110,6 +110,11 @@
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "emacs-backups")))))
 
+;; Write temp files to own directory
+(setq auto-save-file-name-transforms
+      `((".*" ,(concat user-emacs-directory "auto-save") t)))
+
+
 ;; Use X clipboard
 (setq x-select-enable-clipboard t
       x-select-enable-primary t)
