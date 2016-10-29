@@ -133,7 +133,11 @@
 
 ;; Enable S-{left, right, up, down} to switch window focus
 (windmove-default-keybindings)
-
+;; Make windmove work in org-mode:
+(add-hook 'org-shiftup-final-hook 'windmove-up)
+(add-hook 'org-shiftleft-final-hook 'windmove-left)
+(add-hook 'org-shiftdown-final-hook 'windmove-down)
+(add-hook 'org-shiftright-final-hook 'windmove-right)
 
 ;; Write backup files to own directory
 (setq backup-directory-alist
