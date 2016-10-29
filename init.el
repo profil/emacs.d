@@ -124,6 +124,10 @@
   :ensure t
   :bind ("C-x f" . find-file-in-project))
 
+(use-package which-key
+  :ensure t
+  :config (which-key-mode))
+
 ;; Enable S-{left, right, up, down} to switch window focus
 (windmove-default-keybindings)
 
