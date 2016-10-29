@@ -84,6 +84,9 @@
 (use-package hydra
   :ensure t)
 
+(use-package ivy-hydra
+  :ensure t)
+
 (use-package company
   :ensure t
   :init (global-company-mode))
