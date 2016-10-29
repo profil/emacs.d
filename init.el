@@ -109,6 +109,13 @@
   :ensure t
   :init (add-hook 'after-save-hook 'magit-after-save-refresh-status))
 
+(use-package markdown-mode
+  :ensure t
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "pandoc -c ~/.emacs.d/github-pandoc.css --from markdown_github -t html5 --mathjax --highlight-style pygments --standalone"))
+
 ;; Enable S-{left, right, up, down} to switch window focus
 (windmove-default-keybindings)
 
