@@ -146,7 +146,8 @@
 
 ;; Write temp files to own directory
 (setq auto-save-file-name-transforms
-      `((".*" ,(concat user-emacs-directory "auto-save") t)))
+      `((".*" ,(expand-file-name
+                 (concat user-emacs-directory "auto-save")) t)))
 
 
 ;; Use X clipboard
