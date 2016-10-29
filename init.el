@@ -120,6 +120,10 @@
   :ensure t
   :config (add-hook 'markdown-mode-hook 'pandoc-mode))
 
+(use-package find-file-in-project
+  :ensure t
+  :bind ("C-x f" . find-file-in-project))
+
 ;; Enable S-{left, right, up, down} to switch window focus
 (windmove-default-keybindings)
 
