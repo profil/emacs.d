@@ -128,6 +128,9 @@
   :ensure t
   :config (which-key-mode))
 
+(use-package darkroom
+  :ensure t)
+
 ;; Enable S-{left, right, up, down} to switch window focus
 (windmove-default-keybindings)
 
