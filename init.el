@@ -16,6 +16,7 @@
 (setq initial-scratch-message nil)
 
 ;; set font
+(add-to-list 'default-frame-alist '(font . "Inconsolata-10"))
 (set-face-attribute 'default nil :font "Inconsolata-10")
 
 (require 'package)
