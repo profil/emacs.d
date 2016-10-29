@@ -116,6 +116,10 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "pandoc -c ~/.emacs.d/github-pandoc.css --from markdown_github -t html5 --mathjax --highlight-style pygments --standalone"))
 
+(use-package pandoc-mode
+  :ensure t
+  :config (add-hook 'markdown-mode-hook 'pandoc-mode))
+
 ;; Enable S-{left, right, up, down} to switch window focus
 (windmove-default-keybindings)
 
