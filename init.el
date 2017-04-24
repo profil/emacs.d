@@ -108,6 +108,7 @@
 
 (use-package magit
   :ensure t
+  :bind (("C-c m" . magit-status))
   :init (add-hook 'after-save-hook 'magit-after-save-refresh-status))
 
 (use-package markdown-mode
