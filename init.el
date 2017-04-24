@@ -180,6 +180,11 @@
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 (setq scroll-conservatively 10000)
 (setq scroll-margin 3)
+
+;; prefer vertical splits if there is enough space
+(setq split-height-threshold nil)
+(setq split-width-threshold 160)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
