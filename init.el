@@ -16,8 +16,8 @@
 (setq initial-scratch-message nil)
 
 ;; set font
-(add-to-list 'default-frame-alist '(font . "Inconsolata-10"))
-(set-face-attribute 'default nil :font "Inconsolata-10")
+(add-to-list 'default-frame-alist '(font . "Inconsolata-13"))
+(set-face-attribute 'default nil :font "Inconsolata-13")
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
