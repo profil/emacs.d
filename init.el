@@ -122,9 +122,8 @@
   :ensure t
   :config (add-hook 'markdown-mode-hook 'pandoc-mode))
 
-(use-package find-file-in-project
-  :ensure t
-  :bind ("C-x f" . find-file-in-project))
+(use-package project
+  :bind ("C-x f" . project-find-file))
 
 (use-package which-key
   :ensure t
