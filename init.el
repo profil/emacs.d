@@ -92,6 +92,10 @@
   :ensure t
   :init (global-company-mode))
 
+(use-package company-jedi
+  :ensure t
+  :config (add-to-list 'company-backends 'company-jedi))
+
 (use-package org
   :ensure t
   :init (setq org-agenda-window-setup 'current-window))
