@@ -138,6 +138,13 @@
 (use-package darkroom
   :ensure t)
 
+(use-package web-mode
+  :ensure t
+  :mode (("\\.html?\\'" . web-mode))
+  :config (setq web-mode-markup-indent-offset 2
+                web-mode-code-indent-offset 2
+                web-mode-css-indent-offset 2))
+
 ;; Enable S-{left, right, up, down} to switch window focus
 (windmove-default-keybindings)
 ;; Make windmove work in org-mode:
