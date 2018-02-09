@@ -44,7 +44,6 @@
 
 (use-package evil
   :ensure t
-  ;:init (setq evil-want-C-u-scroll t)
   :config (progn
 	    (evil-mode 1)
             (defalias #'forward-evil-word #'forward-evil-symbol)))
