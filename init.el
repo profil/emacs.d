@@ -101,7 +101,16 @@
 
 (use-package org
   :ensure t
-  :init (setq org-agenda-window-setup 'current-window))
+  :init (setq org-agenda-window-setup 'current-window)
+  :config (setq org-agenda-files '("~/org/gtd.org")
+                org-capture-templates '(("t" "Todo" entry
+                                         (file+headline "~/org/gtd.org" "Tasks")
+                                         "* TODO %i%?")
+                                        ("T" "Tickler" entry
+                                         (file+headline "~/org/gtd.org" "Tickler")
+                                         "* %i%? \n %U")))
+  :bind (("C-c c" . org-capture)
+         ("C-c a" . org-agenda)))
 
 (use-package linum
   :init (setq linum-format "%3d ")
