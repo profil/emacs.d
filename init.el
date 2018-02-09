@@ -48,13 +48,6 @@
 	    (evil-mode 1)
             (defalias #'forward-evil-word #'forward-evil-symbol)))
 
-(use-package evil-snipe
-  :ensure t
-  :init (setq evil-snipe-scope 'whole-buffer)
-  :config (progn
-            (evil-snipe-mode 1)
-            (add-hook 'magit-mode-hook 'turn-off-evil-snipe-override-mode)))
-
 (use-package evil-magit
   :ensure t)
 
