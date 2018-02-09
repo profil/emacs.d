@@ -145,6 +145,12 @@
                 web-mode-code-indent-offset 2
                 web-mode-css-indent-offset 2))
 
+(use-package tex-site
+  :ensure auctex
+  :config (setq TeX-PDF-mode t
+                ;TeX-command-force "LaTeX"
+                TeX-view-program-list '(("PDF Viewer" "zathura %o"))))
+
 ;; Enable S-{left, right, up, down} to switch window focus
 (windmove-default-keybindings)
 ;; Make windmove work in org-mode:
