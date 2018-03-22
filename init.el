@@ -142,10 +142,6 @@
 (use-package project
   :bind ("C-x f" . project-find-file))
 
-(use-package which-key
-  :ensure t
-  :config (which-key-mode))
-
 (use-package darkroom
   :ensure t)
 
