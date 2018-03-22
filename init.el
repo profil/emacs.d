@@ -29,14 +29,15 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(use-package doom-themes
+;(use-package doom-themes
+;  :ensure t
+;  :config (progn
+;            (load-theme 'doom-one t)
+;            (add-hook 'find-file-hook 'doom-buffer-mode)))
+
+(use-package dracula-theme
   :ensure t
-  :init (setq org-fontify-whole-heading-line t
-              org-fontify-done-headline t
-              org-fontify-quote-and-verse-blocks t)
-  :config (progn
-            (load-theme 'doom-one t)
-            (add-hook 'find-file-hook 'doom-buffer-mode)))
+  :config (load-theme 'dracula t))
 
 (use-package rainbow-delimiters
   :ensure t
