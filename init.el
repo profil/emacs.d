@@ -18,6 +18,10 @@
 ;; set font
 (add-to-list 'default-frame-alist '(font . "Share Tech Mono-13"))
 (set-face-attribute 'default nil :font "Share Tech Mono-13")
+(set-face-attribute 'mode-line nil
+                    :box `(:line-width 8 :color ,(face-background 'mode-line)))
+(set-face-attribute 'mode-line-inactive nil
+                    :box `(:line-width 8 :color ,(face-background 'mode-line)))
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
