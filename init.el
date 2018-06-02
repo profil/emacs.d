@@ -117,10 +117,6 @@
   :bind (("C-c c" . org-capture)
          ("C-c a" . org-agenda)))
 
-(use-package linum
-  :init (setq linum-format "%3d ")
-  :config (add-hook 'prog-mode-hook 'linum-mode t))
-
 (use-package yasnippet
   :ensure t
   :config (progn
