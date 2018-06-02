@@ -9,6 +9,9 @@
 ;; disable scroll bars
 (scroll-bar-mode -1)
 
+;; Disable blinking cursor
+(blink-cursor-mode -1)
+
 ;; No splash screen
 (setq inhibit-splash-screen t)
 
@@ -23,9 +26,51 @@
 (set-face-attribute 'mode-line-inactive nil
                     :box `(:line-width 8 :color ,(face-background 'mode-line)))
 
+;; Enable S-{left, right, up, down} to switch window focus
+(windmove-default-keybindings)
+;; Make windmove work in org-mode:
+(add-hook 'org-shiftup-final-hook 'windmove-up)
+(add-hook 'org-shiftleft-final-hook 'windmove-left)
+(add-hook 'org-shiftdown-final-hook 'windmove-down)
+(add-hook 'org-shiftright-final-hook 'windmove-right)
+
 (defvar backup-dir "~/.emacs.d/backups/")
 (setq backup-directory-alist (list (cons "." backup-dir)))
 (setq make-backup-files nil)
+
+;; Use X clipboard
+(setq x-select-enable-clipboard t
+      x-select-enable-primary t)
+
+(setq-default indent-tabs-mode nil)
+
+;; delete trailing whitespace in all modes
+(add-hook 'before-save-hook #'delete-trailing-whitespace)
+
+;; set encoding
+(prefer-coding-system 'utf-8)
+
+;; and tell emacs to play nice with encoding
+(define-coding-system-alias 'UTF-8 'utf-8)
+(define-coding-system-alias 'utf8 'utf-8)
+
+;;keep cursor at same position when scrolling
+(setq scroll-preserve-screen-position t)
+
+;; scroll one line at a time
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
+(setq scroll-conservatively 10000)
+(setq scroll-margin 3)
+
+;; prefer vertical splits if there is enough space
+(setq split-height-threshold nil)
+(setq split-width-threshold 160)
+
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file 'noerror)
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -161,49 +206,3 @@
   :config (setq TeX-PDF-mode t
                 ;TeX-command-force "LaTeX"
                 TeX-view-program-list '(("PDF Viewer" "zathura %o"))))
-
-;; Enable S-{left, right, up, down} to switch window focus
-(windmove-default-keybindings)
-;; Make windmove work in org-mode:
-(add-hook 'org-shiftup-final-hook 'windmove-up)
-(add-hook 'org-shiftleft-final-hook 'windmove-left)
-(add-hook 'org-shiftdown-final-hook 'windmove-down)
-(add-hook 'org-shiftright-final-hook 'windmove-right)
-
-
-;; Use X clipboard
-(setq x-select-enable-clipboard t
-      x-select-enable-primary t)
-
-;; Disable blinking cursor
-(blink-cursor-mode -1)
-
-;; delete trailing whitespace in all modes
-(add-hook 'before-save-hook #'delete-trailing-whitespace)
-
-(setq-default indent-tabs-mode nil)
-
-;; set encoding
-(prefer-coding-system 'utf-8)
-
-;; and tell emacs to play nice with encoding
-(define-coding-system-alias 'UTF-8 'utf-8)
-(define-coding-system-alias 'utf8 'utf-8)
-
-;;keep cursor at same position when scrolling
-(setq scroll-preserve-screen-position t)
-
-;; scroll one line at a time
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 1) ;; keyboard scroll one line at a time
-(setq scroll-conservatively 10000)
-(setq scroll-margin 3)
-
-;; prefer vertical splits if there is enough space
-(setq split-height-threshold nil)
-(setq split-width-threshold 160)
-
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file 'noerror)
