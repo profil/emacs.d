@@ -23,6 +23,10 @@
 (set-face-attribute 'mode-line-inactive nil
                     :box `(:line-width 8 :color ,(face-background 'mode-line)))
 
+(defvar backup-dir "~/.emacs.d/backups/")
+(setq backup-directory-alist (list (cons "." backup-dir)))
+(setq make-backup-files nil)
+
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/")))
@@ -165,16 +169,6 @@
 (add-hook 'org-shiftleft-final-hook 'windmove-left)
 (add-hook 'org-shiftdown-final-hook 'windmove-down)
 (add-hook 'org-shiftright-final-hook 'windmove-right)
-
-;; Write backup files to own directory
-(setq backup-directory-alist
-      `(("." . ,(expand-file-name
-                 (concat user-emacs-directory "emacs-backups")))))
-
-;; Write temp files to own directory
-(setq auto-save-file-name-transforms
-      `((".*" ,(expand-file-name
-                 (concat user-emacs-directory "auto-save")) t)))
 
 
 ;; Use X clipboard
