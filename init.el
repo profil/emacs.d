@@ -39,8 +39,8 @@
 (setq make-backup-files nil)
 
 ;; Use X clipboard
-(setq x-select-enable-clipboard t
-      x-select-enable-primary t)
+(setq select-enable-clipboard t
+      select-enable-primary t)
 
 (setq-default indent-tabs-mode nil)
 
