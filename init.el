@@ -122,7 +122,8 @@
   :config (setq alchemist-mix-test-default-options "--no-start"))
 
 (use-package swiper
-  :ensure t)
+  :ensure t
+  :bind ("C-s" . swiper))
 
 (use-package counsel
   :ensure t
