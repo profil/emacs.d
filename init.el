@@ -132,7 +132,8 @@
   :ensure t
   :init (setq ivy-use-virtual-buffers t
                 ivy-height 10
-                ivy-count-format "(%d/%d) ")
+                ivy-count-format "(%d/%d) "
+                ivy-use-selectable-prompt t)
   :bind (("C-c C-r" . ivy-resume)
          :map ivy-minibuffer-map ("RET" . ivy-alt-done))
   :config (ivy-mode 1))
