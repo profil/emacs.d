@@ -61,10 +61,6 @@ Change the behaviour of scrolling.
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'default-frame-alist '(font . "Share Tech Mono-13"))
   (set-face-attribute 'default nil :font "Share Tech Mono-13")
-  (set-face-attribute 'mode-line nil
-                      :box `(:line-width 8 :color ,(face-background 'mode-line)))
-  (set-face-attribute 'mode-line-inactive nil
-                      :box `(:line-width 8 :color ,(face-background 'mode-line)))
 #+END_SRC
 
 ** Customize
@@ -81,7 +77,13 @@ Put all the customize settings into its own file.
 #+BEGIN_SRC emacs-lisp
   (use-package dracula-theme
     :ensure t
-    :config (load-theme 'dracula t))
+    :config (progn (load-theme 'dracula t)
+		   (set-face-attribute
+		    'mode-line nil
+		    :box `(:line-width 8 :color ,(face-background 'mode-line)))
+		   (set-face-attribute
+		    'mode-line-inactive nil
+		    :box `(:line-width 8 :color ,(face-background 'mode-line-inactive)))))
 #+END_SRC
 
 ** Parentheses
