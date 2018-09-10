@@ -74,6 +74,7 @@ Put all the customize settings into its own file.
 #+END_SRC
 
 ** Theme
+
 #+BEGIN_SRC emacs-lisp
   (use-package dracula-theme
     :ensure t
@@ -87,6 +88,7 @@ Put all the customize settings into its own file.
 #+END_SRC
 
 ** Parentheses
+
 #+BEGIN_SRC emacs-lisp
   (use-package rainbow-delimiters
     :ensure t
@@ -101,6 +103,7 @@ Put all the customize settings into its own file.
 #+END_SRC
 
 * Evil
+
 #+BEGIN_SRC emacs-lisp
   (use-package evil
     :ensure t
@@ -187,6 +190,14 @@ Put all the customize settings into its own file.
 
   (use-package ivy-hydra
     :ensure t)
+#+END_SRC
+
+** Syntax checking
+
+#+BEGIN_SRC emacs-lisp
+  (use-package flymake
+    :init (setq python-flymake-command '("flake8" "-"))
+    :config (add-hook 'prog-mode-hook #'flymake-mode))
 #+END_SRC
 
 * Languages
