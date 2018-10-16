@@ -225,6 +225,19 @@ Support for different programming languages.
                   org-capture-templates '(("t" "Todo" entry
                                            (file+headline "~/org/gtd.org" "Tasks")
                                            "* TODO  %?\n  %U\n  %i\n  %a"))
+                  org-agenda-custom-commands '(("c" "Simple agenda view"
+                                                ((agenda ""
+                                                         ((org-agenda-span 1)))
+                                                 (todo "IN-PROGRESS"
+                                                       ((org-agenda-overriding-header "In-progress tasks:")))
+                                                 (todo "WAITING"
+                                                       ((org-agenda-overriding-header "Waiting tasks:")))
+                                                 (alltodo ""
+                                                          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo '("IN-PROGRESS" "WAITING"))))))
+                                                ((org-agenda-start-with-log-mode 'only)
+                                                 (org-agenda-start-with-clockreport-mode nil))))
+                  org-log-done 'time
+                  org-todo-keywords '((sequence "TODO(t)" "IN-PROGRESS(i)" "WAITING(w@)" "|" "DONE(d!)")))
     :bind (("C-c c" . org-capture)
            ("C-c a" . org-agenda)))
 #+END_SRC
