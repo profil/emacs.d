@@ -237,6 +237,7 @@ Support for different programming languages.
                                                 ((org-agenda-start-with-log-mode 'only)
                                                  (org-agenda-start-with-clockreport-mode nil))))
                   org-log-done 'time
+                  org-agenda-use-time-grid nil
                   org-todo-keywords '((sequence "TODO(t)" "IN-PROGRESS(i)" "WAITING(w@)" "|" "DONE(d!)")))
     :bind (("C-c c" . org-capture)
            ("C-c a" . org-agenda)))
