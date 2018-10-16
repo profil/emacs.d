@@ -224,10 +224,7 @@ Support for different programming languages.
     :config (setq org-agenda-files '("~/org/gtd.org")
                   org-capture-templates '(("t" "Todo" entry
                                            (file+headline "~/org/gtd.org" "Tasks")
-                                           "* TODO %i%?")
-                                          ("T" "Tickler" entry
-                                           (file+headline "~/org/gtd.org" "Tickler")
-                                           "* %i%? \n %U")))
+                                           "* TODO  %?\n  %U\n  %i\n  %a"))
     :bind (("C-c c" . org-capture)
            ("C-c a" . org-agenda)))
 #+END_SRC
