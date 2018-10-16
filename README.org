@@ -79,12 +79,12 @@ Put all the customize settings into its own file.
   (use-package dracula-theme
     :ensure t
     :config (progn (load-theme 'dracula t)
-		   (set-face-attribute
-		    'mode-line nil
-		    :box `(:line-width 8 :color ,(face-background 'mode-line)))
-		   (set-face-attribute
-		    'mode-line-inactive nil
-		    :box `(:line-width 8 :color ,(face-background 'mode-line-inactive)))))
+                   (set-face-attribute
+                    'mode-line nil
+                    :box `(:line-width 8 :color ,(face-background 'mode-line)))
+                   (set-face-attribute
+                    'mode-line-inactive nil
+                    :box `(:line-width 8 :color ,(face-background 'mode-line-inactive)))))
 #+END_SRC
 
 ** Parentheses
