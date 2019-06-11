@@ -147,17 +147,32 @@ Put all the customize settings into its own file.
 #+BEGIN_SRC emacs-lisp
   (use-package company
     :ensure t
-    :config (add-hook 'after-init-hook 'global-company-mode))
+    :init
+    (add-hook 'after-init-hook 'global-company-mode)
+    (setq company-idle-delay 0.5
+          company-minimum-prefix-length 2)
+    :config (company-tng-configure-default))
 
-  (use-package company-jedi
+  (use-package company-quickhelp
     :ensure t
-    :config (add-to-list 'company-backends 'company-jedi))
+    :init (company-quickhelp-mode 1))
 
-  (use-package yasnippet
+  (use-package lsp-mode
     :ensure t
-    :config (progn
-              (yas-reload-all)
-              (add-hook 'prog-mode-hook #'yas-minor-mode)))
+    :commands lsp
+    :hook (prog-mode . lsp)
+    :config (require 'lsp-clients))
+
+  (use-package lsp-ui
+    :commands lsp-ui-mode
+    :hook (lsp-mode . lsp-ui-mode))
+
+  (use-package company-lsp
+    :commands company-lsp
+    :config
+    (push 'company-lsp company-backends)
+    (setq company-lsp-async t
+          company-lsp-enable-recompletion t))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
