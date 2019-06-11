@@ -76,15 +76,7 @@ Put all the customize settings into its own file.
 ** Theme
 
 #+BEGIN_SRC emacs-lisp
-  (use-package dracula-theme
-    :ensure t
-    :config (progn (load-theme 'dracula t)
-                   (set-face-attribute
-                    'mode-line nil
-                    :box `(:line-width 8 :color ,(face-background 'mode-line)))
-                   (set-face-attribute
-                    'mode-line-inactive nil
-                    :box `(:line-width 8 :color ,(face-background 'mode-line-inactive)))))
+  (load-theme 'leuven t)
 #+END_SRC
 
 ** Parentheses
