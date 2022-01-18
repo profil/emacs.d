@@ -183,18 +183,14 @@ Put all the customize settings into its own file.
     :ensure t
     :commands lsp
     :hook (prog-mode . lsp)
-    :config (require 'lsp-clients))
+    :init (setq lsp-keymap-prefix "C-c l"))
 
   (use-package lsp-ui
-    :commands lsp-ui-mode
-    :hook (lsp-mode . lsp-ui-mode))
-
-  (use-package company-lsp
-    :commands company-lsp
-    :config
-    (push 'company-lsp company-backends)
-    (setq company-lsp-async t
-          company-lsp-enable-recompletion t))
+    :ensure t
+    :commands lsp-ui-mode)
+  (use-package lsp-ivy
+    :ensure t
+    :commands lsp-ivy-workspace-symbol)
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
