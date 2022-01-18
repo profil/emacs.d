@@ -76,7 +76,9 @@ Put all the customize settings into its own file.
 ** Theme
 
 #+BEGIN_SRC emacs-lisp
-  (load-theme 'leuven t)
+  (use-package nord-theme
+    :ensure t
+    :config (load-theme 'nord t))
 #+END_SRC
 
 ** Parentheses
