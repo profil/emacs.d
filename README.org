@@ -172,9 +172,8 @@ Put all the customize settings into its own file.
     :ensure t
     :init
     (add-hook 'after-init-hook 'global-company-mode)
-    (setq company-idle-delay 0.5
-          company-minimum-prefix-length 2)
-    :config (company-tng-configure-default))
+    (setq company-idle-delay 0.0
+	  company-minimum-prefix-length 1))
 
   (use-package company-quickhelp
     :ensure t
