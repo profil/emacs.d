@@ -99,14 +99,36 @@ Put all the customize settings into its own file.
 * Evil
 
 #+BEGIN_SRC emacs-lisp
+  (use-package general
+    :ensure t
+    :config
+    (general-evil-setup)
+    (general-create-definer my-leader-def
+      :states '(normal motion visual)
+      :keymaps 'override
+      :prefix "SPC")
+    (my-leader-def
+      "SPC" 'execute-extended-command
+      "b" 'ivy-switch-buffer
+      "ff" 'find-file
+      "cd" 'cd
+      "n" 'flymake-goto-next-error
+      "p" 'flymake-goto-prev-error))
+
   (use-package evil
     :ensure t
+    :init
+    (setq evil-want-C-u-scroll t)
+    (setq evil-want-keybinding nil)
+    (setq evil-undo-system 'undo-redo)
     :config (progn
-              (evil-mode 1)
-              (defalias #'forward-evil-word #'forward-evil-symbol)))
+	      (evil-mode 1)
+	      (defalias #'forward-evil-word #'forward-evil-symbol)))
 
-  (use-package evil-magit
-    :ensure t)
+  (use-package evil-collection
+    :ensure t
+    :after evil
+    :config (evil-collection-init))
 
   (use-package evil-org
     :ensure t
