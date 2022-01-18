@@ -221,6 +221,12 @@ Put all the customize settings into its own file.
 
 Support for different programming languages.
 
+** Rust
+#+BEGIN_SRC emacs-lisp
+  (use-package rust-mode
+    :ensure t)
+#+END_SRC
+
 ** Elixir
 
 #+BEGIN_SRC emacs-lisp
