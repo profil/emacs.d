@@ -14,12 +14,14 @@ Disable some parts of the UI.
 Change some of the defaults.
 
 #+BEGIN_SRC emacs-lisp
-  (setq inhibit-splash-screen t
-        initial-scratch-message nil
-        make-backup-files nil
-        select-enable-clipboard t
-        select-enable-primary t
-        indent-tabs-mode nil)
+  (setq-default inhibit-splash-screen t
+                initial-scratch-message nil
+                make-backup-files nil
+                select-enable-clipboard t
+                select-enable-primary t
+                indent-tabs-mode nil
+                gc-cons-threshold 100000000
+                read-process-output-max (* 1024 1024))
 
   ;; prefer vertical splits if there is enough space
   (setq split-height-threshold nil
