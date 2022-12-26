@@ -280,3 +280,12 @@ Support for different programming languages.
                   ;TeX-command-force "LaTeX"
                   TeX-view-program-list '(("PDF Viewer" "zathura %o"))))
 #+END_SRC
+
+** Python
+#+BEGIN_SRC emacs-lisp
+  (use-package python-black
+    :ensure t
+    :demand t
+    :after python
+    :hook (python-mode . python-black-on-save-mode))
+#+END_SRC
