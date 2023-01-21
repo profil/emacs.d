@@ -116,7 +116,8 @@ Put all the customize settings into its own file.
       :prefix "SPC")
     (my-leader-def
       "SPC" 'execute-extended-command
-      "b" 'ivy-switch-buffer
+      "b" 'consult-buffer
+      "s" 'consult-line
       "ff" 'find-file
       "cd" 'cd
       "n" 'flymake-goto-next-error
@@ -164,14 +165,6 @@ Put all the customize settings into its own file.
     :bind ("C-x f" . project-find-file))
 #+END_SRC
 
-** Search
-
-#+BEGIN_SRC emacs-lisp
-  (use-package swiper
-    :ensure t
-    :bind ("C-s" . swiper))
-#+END_SRC
-
 ** Completion and filtering
 
 #+BEGIN_SRC emacs-lisp
@@ -197,19 +190,30 @@ Put all the customize settings into its own file.
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
-  (use-package counsel
+  (use-package vertico
     :ensure t
-    :bind ("M-x" . counsel-M-x))
+    :init (vertico-mode)
+    :custom
+    (vertico-resize t)
+    (vertico-cycle t))
 
-  (use-package ivy
+  (use-package savehist
     :ensure t
-    :init (setq ivy-use-virtual-buffers t
-                  ivy-height 10
-                  ivy-count-format "(%d/%d) "
-                  ivy-use-selectable-prompt t)
-    :bind (("C-c C-r" . ivy-resume)
-           :map ivy-minibuffer-map ("RET" . ivy-alt-done))
-    :config (ivy-mode 1))
+    :init (savehist-mode))
+
+  (use-package orderless
+    :ensure t
+    :custom
+    (completion-styles '(orderless basic))
+    (completion-category-defaults nil)
+    (completion-category-overrides '((file (styles partial-completion)))))
+
+  (use-package consult
+    :ensure t)
+
+  (use-package marginalia
+    :ensure t
+    :init (marginalia-mode))
 #+END_SRC
 
 * Languages
