@@ -175,12 +175,21 @@ Put all the customize settings into its own file.
 ** Completion and filtering
 
 #+BEGIN_SRC emacs-lisp
-  (use-package company
+  (use-package corfu
     :ensure t
-    :init
-    (add-hook 'after-init-hook 'global-company-mode)
-    (setq company-idle-delay 0.0
-	  company-minimum-prefix-length 1))
+    :custom
+    (corfu-auto t)
+    (corfu-auto-delay 0)
+    (corfu-auto-prefix 2)
+    (corfu-quit-no-match nil)
+    (corfu-preselect 'prompt)
+    :init (global-corfu-mode))
+
+  (use-package corfu-terminal
+    :ensure t
+    :unless (display-graphic-p)
+    :after corfu
+    :init (corfu-terminal-mode))
 
   (use-package flycheck
     :ensure t
@@ -242,6 +251,7 @@ Support for different programming languages.
 
   (use-package alchemist
     :ensure t
+    :disabled
     :config (setq alchemist-mix-test-default-options "--no-start"))
 #+END_SRC
 
