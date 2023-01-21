@@ -191,22 +191,9 @@ Put all the customize settings into its own file.
     :after corfu
     :init (corfu-terminal-mode))
 
-  (use-package flycheck
+  (use-package eglot
     :ensure t
-    :hook (prog-mode . flycheck-mode))
-
-  (use-package lsp-mode
-    :ensure t
-    :commands lsp
-    :hook (prog-mode . lsp)
-    :init (setq lsp-keymap-prefix "C-c l"))
-
-  (use-package lsp-ui
-    :ensure t
-    :commands lsp-ui-mode)
-  (use-package lsp-ivy
-    :ensure t
-    :commands lsp-ivy-workspace-symbol)
+    :hook ((rust-mode . eglot-ensure)))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
